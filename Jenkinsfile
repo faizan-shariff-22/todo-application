@@ -2,7 +2,7 @@ pipeline{
     agent any
 
     environment{
-        DOCKER_CREDENTIALS = 'docker-hub-credentials'
+        DOCKERHUB_CREDENTIALS = 'docker-hub-credentials'
         IMAGE_NAME = 'faizan2203/todo-application:latest'
         GIT_REPO = 'https://github.com/faizan-shariff-22/todo-application.git'
     }
