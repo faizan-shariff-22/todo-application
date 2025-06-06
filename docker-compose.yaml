@@ -7,20 +7,21 @@ services:
       - "8082:8081"
     depends_on:
       mysql-db:
-      - condition: service_healthy
+        condition: service_healthy
     networks:
       - todo-network
     environment:
       - SPRING.DATASOURCE.URL=jdbc:mysql://mysql-db:3306/tododb
       - SPRING.DATASOURCE.USERNAME=root
       - SPRING.DATASOURCE.PASSWORD=Root@123
+
   mysql-db:
     image: mysql:8
     container_name: mysql-db
     environment:
       - MYSQL_ROOT_PASSWORD=Root@123
       - MYSQL_DATABASE=tododb
-    posrts:
+    ports:
       - "3307:3306"
     volumes:
       - mysql-data:/var/lib/mysql
@@ -35,4 +36,4 @@ volumes:
   mysql-data:
 networks:
   todo-network:
-    deiver: bridge
+    driver: bridge
